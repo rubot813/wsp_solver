@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="wsp_solver" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="release">
+				<Option output="../build/wsp_solver" prefix_auto="1" extension_auto="1" />
+				<Option object_output="../objects/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add option="-std=c++11" />
+					<Add directory="include" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+		</Compiler>
+		<Unit filename="include/color.h" />
+		<Unit filename="include/flask.h" />
+		<Unit filename="include/flask_state.h" />
+		<Unit filename="include/move.h" />
+		<Unit filename="main.cpp" />
+		<Unit filename="src/color.cpp" />
+		<Unit filename="src/flask.cpp" />
+		<Unit filename="src/flask_state.cpp" />
+		<Unit filename="src/move.cpp" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
