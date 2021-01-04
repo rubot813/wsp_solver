@@ -1,6 +1,6 @@
 #include "move.h"
 
-// Вернет true, если ходы соответсвуют в инверсии
+// Р’РµСЂРЅРµС‚ true, РµСЃР»Рё С…РѕРґС‹ СЃРѕРѕС‚РІРµС‚СЃРІСѓСЋС‚ РІ РёРЅРІРµСЂСЃРёРё
 bool move_s::same_inverse( move_s &inv ) {
 	return ( flask_id0 == inv.flask_id1 &&
 	         flask_id1 == inv.flask_id0 );

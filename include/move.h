@@ -1,13 +1,13 @@
 #ifndef MOVE_H
 #define MOVE_H
 
-// Класс описывает один ход
+// РљР»Р°СЃСЃ РѕРїРёСЃС‹РІР°РµС‚ РѕРґРёРЅ С…РѕРґ
 class move_s {
 public:
 	bool same_inverse( move_s &inv );
 	operator==( move_s &mv);
 
-	// Что и куда переместить
+	// Р§С‚Рѕ Рё РєСѓРґР° РїРµСЂРµРјРµСЃС‚РёС‚СЊ
 	unsigned flask_id0, flask_id1;
 	// private?
 

@@ -16,7 +16,7 @@ bool flask_c::is_empty( void ) {
 	return emp;
 }
 
-// Количество свободных слотов
+// РљРѕР»РёС‡РµСЃС‚РІРѕ СЃРІРѕР±РѕРґРЅС‹С… СЃР»РѕС‚РѕРІ
 unsigned flask_c::free_count( void ) {
 	unsigned cnt = 0;
 	for ( unsigned i = SLOT_COUNT - 1; i >= 0; i-- ) {
@@ -28,8 +28,8 @@ unsigned flask_c::free_count( void ) {
 	return cnt;
 }
 
-// Возвращает верхний цвет
-// empty если фласка пуста
+// Р’РѕР·РІСЂР°С‰Р°РµС‚ РІРµСЂС…РЅРёР№ С†РІРµС‚
+// empty РµСЃР»Рё С„Р»Р°СЃРєР° РїСѓСЃС‚Р°
 color_e flask_c::upper_color( void ) {
 	color_e c = empty;
 	for ( signed i = SLOT_COUNT - 1; i >= 0; i-- )
@@ -40,23 +40,23 @@ color_e flask_c::upper_color( void ) {
 	return c;
 }
 
-// Возвращает количество элементов, которые можно перелить за ход
+// Р’РѕР·РІСЂР°С‰Р°РµС‚ РєРѕР»РёС‡РµСЃС‚РІРѕ СЌР»РµРјРµРЅС‚РѕРІ, РєРѕС‚РѕСЂС‹Рµ РјРѕР¶РЅРѕ РїРµСЂРµР»РёС‚СЊ Р·Р° С…РѕРґ
 unsigned flask_c::unfill_count( void ) {
 	unsigned cntr = 0;
-	color_e up_color = upper_color( );  // Верхний цвет
+	color_e up_color = upper_color( );  // Р’РµСЂС…РЅРёР№ С†РІРµС‚
 
-	// Переработать, чтобы не было двух return
+	// РџРµСЂРµСЂР°Р±РѕС‚Р°С‚СЊ, С‡С‚РѕР±С‹ РЅРµ Р±С‹Р»Рѕ РґРІСѓС… return
 	if ( up_color == empty )
 		return 0;
 
-	// Идем сверху вниз и ищем upper_color цвет
+	// РРґРµРј СЃРІРµСЂС…Сѓ РІРЅРёР· Рё РёС‰РµРј upper_color С†РІРµС‚
 	for ( signed i = SLOT_COUNT - 1; i >= 0; i-- ) {
-		// Пропуск всех empty
+		// РџСЂРѕРїСѓСЃРє РІСЃРµС… empty
 		if ( _color[ i ] == empty )
 			continue;
 
-		// Если встретили свой цвет ++
-		// Иначе выход из цикла
+		// Р•СЃР»Рё РІСЃС‚СЂРµС‚РёР»Рё СЃРІРѕР№ С†РІРµС‚ ++
+		// РРЅР°С‡Рµ РІС‹С…РѕРґ РёР· С†РёРєР»Р°
 		if ( _color[ i ] == up_color ) {
 			cntr++;
 		} else
@@ -65,12 +65,12 @@ unsigned flask_c::unfill_count( void ) {
 	return cntr;
 }
 
-// Удаляет нужное количество цветов сверху, исключая empty
+// РЈРґР°Р»СЏРµС‚ РЅСѓР¶РЅРѕРµ РєРѕР»РёС‡РµСЃС‚РІРѕ С†РІРµС‚РѕРІ СЃРІРµСЂС…Сѓ, РёСЃРєР»СЋС‡Р°СЏ empty
 void flask_c::unfill( unsigned cnt ) {
 	signed tmp = cnt;
-	// Идем сверху вниз и ищем upper_color цвет
+	// РРґРµРј СЃРІРµСЂС…Сѓ РІРЅРёР· Рё РёС‰РµРј upper_color С†РІРµС‚
 	for ( signed i = SLOT_COUNT - 1; i >= 0; i-- ) {
-		// Пропуск всех empty
+		// РџСЂРѕРїСѓСЃРє РІСЃРµС… empty
 		if ( _color[ i ] == empty )
 			continue;
 		else {
@@ -78,7 +78,7 @@ void flask_c::unfill( unsigned cnt ) {
 			tmp--;
 		}
 
-		// Удалили нужное количество цветов
+		// РЈРґР°Р»РёР»Рё РЅСѓР¶РЅРѕРµ РєРѕР»РёС‡РµСЃС‚РІРѕ С†РІРµС‚РѕРІ
 		if ( !tmp )
 			break;
 	}
@@ -88,7 +88,7 @@ void flask_c::unfill( unsigned cnt ) {
 		std::cout << "unfill error!";
 }
 
-// Доливает сверху cnt слотов
+// Р”РѕР»РёРІР°РµС‚ СЃРІРµСЂС…Сѓ cnt СЃР»РѕС‚РѕРІ
 void flask_c::fill( unsigned cnt, color_e color ) {
 	unsigned cntr = cnt;
 	color_e cl = color == empty ? upper_color( ) : color;
@@ -102,7 +102,7 @@ void flask_c::fill( unsigned cnt, color_e color ) {
 	}
 }
 
-// Вернет true, если все цвета одинаковы ( или empty )
+// Р’РµСЂРЅРµС‚ true, РµСЃР»Рё РІСЃРµ С†РІРµС‚Р° РѕРґРёРЅР°РєРѕРІС‹ ( РёР»Рё empty )
 bool flask_c::every_color_same( void ) {
 	bool t = 1;
 	color_e c = _color[ 0 ];
